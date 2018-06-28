@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "A tool to quickly take notes from your terminal",
   "bin": {
-    "enpitz": "bin/main.js"
+    "enpitz": "bin/enpitz.js"
   },
   "repository": {
     "type": "git",
