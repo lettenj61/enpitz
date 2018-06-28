@@ -2,8 +2,8 @@
 
 const program = require('commander')
 
-const Config = require('../lib/configure')
-const store = require('../lib/store')
+const Config = require('../lib/configure.js')
+const store = require('../lib/store.js')
 
 const config = new Config()
 
