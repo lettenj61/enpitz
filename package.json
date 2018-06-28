@@ -5,6 +5,10 @@
   "bin": {
     "enpitz": "bin/enpitz.js"
   },
+  "files": [
+    "bin",
+    "lib"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/lettenj61/enpitz.git"
