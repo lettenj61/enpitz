@@ -48,6 +48,7 @@ program.command('render [date]')
   .action((date, cmd) => {
     handled = true
     config.format = cmd.format
+    config.output = cmd.output
     config.verbose = cmd.verbose
     store.renderPosts(config, date)
   })
