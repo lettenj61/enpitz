@@ -15,7 +15,6 @@
   ],
   "author": "Hideyuki Ueno",
   "license": "MIT",
-  "private": true,
   "engines": {
     "node": ">=8"
   },
