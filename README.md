@@ -35,24 +35,37 @@ Type `enpitz -h` to get help message.
 
   Commands:
 
-    add <note>     Save a note to storage
-    list [date]    Show notes saved in specific date (default: today)
+    add [options] <note>     take a new note
+    dir                      show enpitz home directory
+    list [options] [date]    show notes saved in specific date (default: today)
+    render [options] [date]  render saved notes
 ```
 
 ### take a note
 
 ```sh
 $ enpitz add 'Good morning!'
-√ success Successfully saved note: `Good morning!` at Users/lettenj61/_enpitz/2016-05-14.json
+√ success saved note: `Good morning!` at Users/lettenj61/_enpitz/2016-05-14.json
 ```
 
 ### remind a note
 
 ```sh
 $ enpitz list 2016-05-14
-* start Showing 1 note(s) from Users/lettenj61/_enpitz/2016-05-14.json ...
 [2016-05-14 08:18:04]: Good morning!
-√ success Done.
+```
+
+### render notes
+
+```
+$ enpitz render
+
+# Notes 2016-05-14
+
+## 2018-05-14 08:18:04
+
+Good morning!
+
 ```
 
 ## license

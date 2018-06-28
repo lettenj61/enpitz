@@ -6,41 +6,59 @@ const Config = require('../lib/configure.js')
 const store = require('../lib/store.js')
 
 const config = new Config()
+let handled = false
 
 program.version('0.1.0')
 
 program.command('add <note>')
-  .description('Save a note to storage')
-  .option('-s, --silent', 'Suppress result notification')
+  .description('take a new note')
+  .option('-s, --silent', 'suppress result notification')
   .action((note, cmd) => {
+    handled = true
     config.silent = cmd.silent
     store.addPost(config, note)
   })
 
+program.command('dir')
+  .description('show enpitz home directory')
+  .action(() => {
+    handled = true
+    console.log(config.homeDir)
+  })
+
 program.command('list [date]')
-  .description('Show notes saved in specific date (default: today)')
-  .option('-v, --verbose', 'Print verbose information of notes')
+  .description('show notes saved in specific date (default: today)')
+  .option('-v, --verbose', 'print verbose information of notes')
   .action((date, cmd) => {
+    handled = true
     config.verbose = cmd.verbose
     store.getPosts(config, date)
   })
 
 program.command('render [date]')
-  .description('Render saved notes')
-  .option('-o, --output [file]', 'Write rendered string into given file')
+  .description('render saved notes')
+  .option('-o, --output [file]', 'write rendered string in given file')
+  .option('-v, --verbose', 'print verbose information')
   .option(
     '-f, --format [type]',
-    'Specify output format (markdown|md|json)',
+    'specify output format (markdown|md|json)',
     /^(markdown|md|json)$/i,
     'markdown'
   )
   .action((date, cmd) => {
+    handled = true
     config.format = cmd.format
+    config.verbose = cmd.verbose
     store.renderPosts(config, date)
   })
 
 program.parse(process.argv)
 
-if (!process.argv.slice(2).length) {
+if (!handled) {
+  const command = process.argv[2]
+  if (command && command.length)  {
+    console.log('')
+    console.log('  error: unknown command `' + command + '`')
+  }
   program.outputHelp()
 }
