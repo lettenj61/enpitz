@@ -2,13 +2,14 @@
 
 const program = require('commander')
 
+const packageJson = require('../package.json')
 const Config = require('../lib/configure.js')
 const store = require('../lib/store.js')
 
 const config = new Config()
 let handled = false
 
-program.version('0.1.0')
+program.version(packageJson.version || '0.1.0-SNAPSHOT')
 
 program.command('add <note>')
   .description('take a new note')
