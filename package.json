@@ -1,6 +1,6 @@
 {
   "name": "enpitz",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A tool to quickly take notes from your terminal",
   "bin": {
     "enpitz": "bin/enpitz.js"
